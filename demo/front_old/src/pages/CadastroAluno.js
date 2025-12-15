@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function CadastroAlunos() {
+export default function CadastroAluno() {
   const navigate = useNavigate();
 
   const [nome, setNome] = useState("");
@@ -13,13 +13,17 @@ export default function CadastroAlunos() {
   function handleCadastro(e) {
     e.preventDefault();
 
-    console.log("Aluno cadastrado:", {
+    const aluno = {
       nome,
       email,
       senha,
       telefone,
       matricula,
-    });
+      role: "CLIENTE",
+    };
+
+    // 🚧 Simulação (depois vira backend)
+    console.log("Aluno cadastrado:", aluno);
 
     alert("Cadastro realizado com sucesso!");
     navigate("/login");
@@ -29,23 +33,26 @@ export default function CadastroAlunos() {
     <div style={styles.page}>
       <div style={styles.card}>
 
-        {/* Lado azul */}
+        {/* LADO AZUL */}
         <div style={styles.left}>
           <h2 style={styles.logo}>Cantina SESI</h2>
-          <p style={styles.welcome}>Bem-vindo</p>
+          <p style={styles.welcome}>Bem-vindo!</p>
           <p style={styles.subtitle}>
-            Já tem uma conta? Faça Login!
+            Já possui uma conta?
           </p>
 
-          <button style={styles.secondaryBtn} onClick={() => navigate("/login")}>
-            Login
+          <button
+            style={styles.secondaryBtn}
+            onClick={() => navigate("/login")}
+          >
+            Fazer Login
           </button>
         </div>
 
-        {/* Lado branco */}
+        {/* LADO BRANCO */}
         <div style={styles.right}>
-          <h2 style={styles.title}>Crie sua conta agora mesmo.</h2>
-          <p style={styles.desc}>Preencha com suas informações</p>
+          <h2 style={styles.title}>Cadastro de Aluno</h2>
+          <p style={styles.desc}>Preencha seus dados</p>
 
           <form onSubmit={handleCadastro} style={styles.form}>
             <input
@@ -115,7 +122,7 @@ const styles = {
   },
   card: {
     width: "900px",
-    height: "520px",
+    height: "540px",
     display: "flex",
     borderRadius: "12px",
     overflow: "hidden",

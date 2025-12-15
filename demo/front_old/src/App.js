@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import CadastroAluno from "./pages/CadastroAluno";
 import HomeAdmin from "./pages/HomeAdmin";
 import HomeCliente from "./pages/HomeCliente";
+import Estoque from "./pages/Estoque";
+import Carrinho from "./pages/Carrinho";
 
 function App() {
   return (
@@ -16,8 +18,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<CadastroAluno />} />
 
+          {/* ADMIN */}
           <Route path="/admin" element={<HomeAdmin />} />
+          <Route path="/admin/estoque" element={<Estoque />} />
+
+          {/* CLIENTE */}
           <Route path="/cliente" element={<HomeCliente />} />
+          <Route path="/cliente/carrinho" element={<Carrinho />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
@@ -25,3 +32,4 @@ function App() {
 }
 
 export default App;
+
